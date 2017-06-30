@@ -12,7 +12,7 @@ module.exports = env => {
   const config = {
     entry: ['./js/template.js', './sass/template.scss'],
     output: {
-      filename: '[name].js',
+      filename: 'template.js',
       path: resolve(__dirname, 'dist')
     },
     stats: {
@@ -23,7 +23,7 @@ module.exports = env => {
     devtool: ifProd('source-map', 'eval'),
     plugins: removeEmpty([
       new ExtractTextPlugin({
-        filename: 'wu.css',
+        filename: 'template.css',
         disable: ifProd(false, true)
       }),
       new HtmlWebpackPlugin({
