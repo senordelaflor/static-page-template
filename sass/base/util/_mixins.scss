@@ -1,0 +1,72 @@
+//media queries
+$breakpoint-xsmall: 320px;
+$breakpoint-small: 480px;
+$breakpoint-medium: 637px;
+$breakpoint-large: 1030px;
+$breakpoint-xlarge: 1195px;
+
+@mixin mq($breakpoint, $type: min) {
+  @if $type == max {
+    $breakpoint: $breakpoint - 1px;
+  }
+  @media only screen and (#{$type}-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin double-mq($min-breakpoint, $max-breakpoint) {
+  @media only screen and (min-width: $min-breakpoint) and (max-width: $max-breakpoint) {
+    @content;
+  }
+}
+
+//responsive background images
+@mixin responsive-fullscreen-bg-img($image-path, $image-name, $extension: 'jpg') {
+  background-image: url($image-path + $image-name + '_large.' + $extension);
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    background-image: url($image-path + $image-name + '_large_2x.' + $extension);
+  }
+  @media only screen and (max-width: $breakpoint-large - 1px) {
+    background-image: url($image-path + $image-name + '_medium.' + $extension);
+  }
+  @media only screen and (max-width: $breakpoint-large - 1px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: $breakpoint-large - 1px) and (min-resolution: 1.5dppx), only screen and (max-width: $breakpoint-large - 1px) and (min-resolution: 144dpi) {
+    background-image: url($image-path + $image-name + '_medium_2x.' + $extension);
+  }
+  @media only screen and (max-width: $breakpoint-medium - 1px) {
+    background-image: url($image-path + $image-name + '_small.' + $extension);
+  }
+  @media only screen and (max-width: $breakpoint-medium - 1px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: $breakpoint-medium - 1px) and (min-resolution: 1.5dppx), only screen and (max-width: $breakpoint-medium - 1px) and (min-resolution: 144dpi) {
+    background-image: url($image-path + $image-name + '_small_2x.' + $extension);
+  }
+}
+
+@mixin retina-bg-img($image-path, $image-name, $extension: 'jpg') {
+  background-image: url($image-path + $image-name + '.' + $extension);
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    background-image: url($image-path + $image-name + '_2x.' + $extension);
+  }
+}
+
+//silky smooth box-shadow animation
+//http://tobiasahlin.com/blog/how-to-animate-box-shadow/
+@mixin animate-box-shadow($offset-x, $offset-y, $blur-radius, $spread-radius, $color) {
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    box-shadow: $offset-x $offset-y $blur-radius $spread-radius $color;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+  }
+}
