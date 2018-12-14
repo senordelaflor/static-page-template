@@ -1,23 +1,23 @@
 /* VENDOR - Default fall-backs and external files.
 ========================================================================== */
-@import 'vendors/normalize';
+@import "vendors/normalize";
 
 /* BASE - Base Variable file along with starting point Mixins and Placeholders.
 ========================================================================== */
-@import 'base/variables';
-@import 'base/colors';
-@import 'base/util/mixins';
-@import 'base/util/placeholders';
-@import 'base/helpers';
-@import 'base/base';
-@import 'base/keyframes';
-@import 'base/fonts';
-@import 'base/typography';
+@import "base/variables";
+@import "base/colors";
+@import "base/util/mixins";
+@import "base/util/placeholders";
+@import "base/helpers";
+@import "base/base";
+@import "base/keyframes";
+@import "base/fonts";
+@import "base/typography";
 
 /* COMPONENTS - Re-usable site elements.
 ========================================================================== */
 
 /* SECTIONS - Structure and layout files.
 ========================================================================== */
-@import 'sections/header';
-@import 'sections/footer';
+@import "sections/header";
+@import "sections/footer";

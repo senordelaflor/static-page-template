@@ -1,3 +1,31 @@
 {
-  "extends": ["standard", "standard-jsx"]
+  "env": {
+    "browser": true
+  },
+  "plugins": ["react"],
+  "parser": "babel-eslint",
+  "extends": ["standard"],
+  "globals": {
+    "React": false,
+    "$": false
+  },
+  "rules": {
+    "space-before-function-paren": [
+      "error",
+      { "named": "never", "anonymous": "never" }
+    ],
+    "quotes": ["error", "double"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline"
+      }
+    ],
+    "prefer-const": ["error"],
+    "react/jsx-uses-vars": "error"
+  }
 }

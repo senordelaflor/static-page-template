@@ -1,10 +1,26 @@
 {
-  "presets": [
-    ["env", {
-      "targets": {
-        "browsers": ["last 2 versions", "safari >= 9"]
-      },
-      "modules": false
-    }]
+  plugins: [
+    "syntax-dynamic-import",
+    [
+      "transform-class-properties",
+      {
+        spec: true
+      }
+    ],
+    "transform-object-rest-spread"
+  ],
+  presets: [
+    "react",
+    [
+      "env",
+      {
+        modules: false,
+        targets: {
+          browsers: "> 1%",
+          uglify: true
+        },
+        useBuiltIns: true
+      }
+    ]
   ]
 }
