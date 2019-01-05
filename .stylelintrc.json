@@ -1,0 +1,48 @@
+{
+  "plugins": ["stylelint-scss", "stylelint-order"],
+  "rules": {
+    "order/order": [
+      "dollar-variables",
+      {
+        "type": "at-rule",
+        "name": "extend"
+      },
+      {
+        "type": "at-rule",
+        "name": "include"
+      },
+      "declarations",
+      {
+        "type": "at-rule",
+        "name": "include",
+        "parameter": "mq",
+        "hasBlock": true
+      },
+      {
+        "type": "rule",
+        "selector": "^&:\\w"
+      },
+      {
+        "type": "rule",
+        "selector": "^&::\\w"
+      },
+      "rules"
+    ],
+    "order/properties-alphabetical-order": true,
+    "rule-empty-line-before": ["always",
+      {
+        "except": ["first-nested"]
+      }
+    ],
+    "at-rule-empty-line-before": ["always",
+      {
+        "except": ["first-nested", "blockless-after-blockless"]
+      }
+    ],
+    "block-opening-brace-space-before": "always",
+    "declaration-block-semicolon-newline-before": "never-multi-line",
+    "length-zero-no-unit": true,
+    "number-leading-zero": "always",
+    "scss/operator-no-unspaced": true
+  }
+}
